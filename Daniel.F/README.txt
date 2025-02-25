@@ -1,0 +1,1 @@
+Aquí crearemos las tareas de equipo. Y en las subcarpetas individuales.
