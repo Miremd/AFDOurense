@@ -6,6 +6,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 
 -- -----------------------------------------------------
 -- Schema BDlaboratoriObjetos
+-- -----------------------------------------------------
+-- Se desea diseñar una base de datos para almacenar información sobre objetos que se encuentran en un
+-- laboratorio. De cada objeto nos interesa saber: el código de objeto, el precio del objeto, el nivel de importancia
+-- del objeto, el ancho y el alto de cada uno.
+-- Se considera que cada objeto es único, varios objetos del mismo tipo (matraces de 250 ml, por ejemplo),
+-- tendrán cada uno un identificador diferente.
+-- Cada objeto está en un único laboratorio. De cada laboratorio nos interesa saber, el número de laboratorio (que
+-- es único), los metros cuadrados que tiene y el número de mesas que hay en el mismo.
+DROP SCHEMA IF EXISTS `BDlaboratoriObjetos` ;
+
+-- -----------------------------------------------------
+-- Schema BDlaboratoriObjetos
 --
 -- Se desea diseñar una base de datos para almacenar información sobre objetos que se encuentran en un
 -- laboratorio. De cada objeto nos interesa saber: el código de objeto, el precio del objeto, el nivel de importancia
@@ -15,8 +27,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Cada objeto está en un único laboratorio. De cada laboratorio nos interesa saber, el número de laboratorio (que
 -- es único), los metros cuadrados que tiene y el número de mesas que hay en el mismo.
 -- -----------------------------------------------------
-DROP Schema IF EXISTS`BDlaboratoriObjetos`;
-
 CREATE SCHEMA IF NOT EXISTS `BDlaboratoriObjetos` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
 USE `BDlaboratoriObjetos` ;
 
@@ -55,6 +65,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `BDlaboratoriObjetos`.`TipObjeto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`TipObjeto` (
+  `idTipObjeto` INT NOT NULL AUTO_INCREMENT,
+  `Cantidad` VARCHAR(45) NULL,
+  PRIMARY KEY (`idTipObjeto`),
+  UNIQUE INDEX `idTipObjeto_UNIQUE` (`idTipObjeto` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `BDlaboratoriObjetos`.`objetos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`objetos` (
@@ -64,12 +85,19 @@ CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`objetos` (
   `alto` VARCHAR(45) NULL,
   `ancho` VARCHAR(45) NULL,
   `laboratorios_numLaboratorio` INT NOT NULL,
-  PRIMARY KEY (`codObjeto`, `laboratorios_numLaboratorio`),
+  `TipObjeto_idTipObjeto` INT NOT NULL,
+  PRIMARY KEY (`codObjeto`, `laboratorios_numLaboratorio`, `TipObjeto_idTipObjeto`),
   UNIQUE INDEX `codObjeto_UNIQUE` (`codObjeto` ASC) VISIBLE,
   INDEX `fk_objetos_laboratorios_idx` (`laboratorios_numLaboratorio` ASC) VISIBLE,
+  INDEX `fk_objetos_TipObjeto1_idx` (`TipObjeto_idTipObjeto` ASC) VISIBLE,
   CONSTRAINT `fk_objetos_laboratorios`
     FOREIGN KEY (`laboratorios_numLaboratorio`)
     REFERENCES `BDlaboratoriObjetos`.`laboratorios` (`numLaboratorio`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_objetos_TipObjeto1`
+    FOREIGN KEY (`TipObjeto_idTipObjeto`)
+    REFERENCES `BDlaboratoriObjetos`.`TipObjeto` (`idTipObjeto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
