@@ -1,0 +1,65 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema BDAviones
+-- -----------------------------------------------------
+-- Una compañía aérea quiere almacenar información referente a sus vuelos. Un vuelo se identifica por una clave de
+-- vuelo que es única. Además tiene su fecha de salida, la hora de salida, la hora de embarque y la ciudad origen y
+-- destino a la que vuela. También se quiere saber qué avión realiza el vuelo. Del avión se tiene su código
+-- identificativo único (matrícula), el tipo de avión y el número de pasajeros. Cada vuelo será realizado
+-- exclusivamente por un avión.
+DROP SCHEMA IF EXISTS `BDAviones` ;
+
+-- -----------------------------------------------------
+-- Schema BDAviones
+--
+-- Una compañía aérea quiere almacenar información referente a sus vuelos. Un vuelo se identifica por una clave de
+-- vuelo que es única. Además tiene su fecha de salida, la hora de salida, la hora de embarque y la ciudad origen y
+-- destino a la que vuela. También se quiere saber qué avión realiza el vuelo. Del avión se tiene su código
+-- identificativo único (matrícula), el tipo de avión y el número de pasajeros. Cada vuelo será realizado
+-- exclusivamente por un avión.
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `BDAviones` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
+USE `BDAviones` ;
+
+-- -----------------------------------------------------
+-- Table `BDAviones`.`Avion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BDAviones`.`Avion` (
+  `matricula` INT NOT NULL,
+  `tipoAvion` VARCHAR(45) NULL,
+  `numeroPasajeros` VARCHAR(45) NULL,
+  PRIMARY KEY (`matricula`),
+  UNIQUE INDEX `matricula_UNIQUE` (`matricula` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `BDAviones`.`Vuelo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BDAviones`.`Vuelo` (
+  `idVuelo` INT NOT NULL,
+  `fecha salida` DATE NULL,
+  `horaSalida` VARCHAR(45) NULL,
+  `horaEmbarque` VARCHAR(45) NULL,
+  `ciudad origen` VARCHAR(45) NULL,
+  `ciudadDestino` VARCHAR(45) NULL,
+  `Avion_matricula` INT NOT NULL,
+  PRIMARY KEY (`idVuelo`, `Avion_matricula`),
+  UNIQUE INDEX `idVuelo_UNIQUE` (`idVuelo` ASC) VISIBLE,
+  INDEX `fk_Vuelo_Avion_idx` (`Avion_matricula` ASC) VISIBLE,
+  CONSTRAINT `fk_Vuelo_Avion`
+    FOREIGN KEY (`Avion_matricula`)
+    REFERENCES `BDAviones`.`Avion` (`matricula`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
