@@ -6,17 +6,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 
 -- -----------------------------------------------------
 -- Schema BDlaboratoriObjetos
--- -----------------------------------------------------
--- Se desea diseñar una base de datos para almacenar información sobre objetos que se encuentran en un
--- laboratorio. De cada objeto nos interesa saber: el código de objeto, el precio del objeto, el nivel de importancia
--- del objeto, el ancho y el alto de cada uno.
--- Se considera que cada objeto es único, varios objetos del mismo tipo (matraces de 250 ml, por ejemplo),
--- tendrán cada uno un identificador diferente.
--- Cada objeto está en un único laboratorio. De cada laboratorio nos interesa saber, el número de laboratorio (que
--- es único), los metros cuadrados que tiene y el número de mesas que hay en el mismo.
-
--- -----------------------------------------------------
--- Schema BDlaboratoriObjetos
 --
 -- Se desea diseñar una base de datos para almacenar información sobre objetos que se encuentran en un
 -- laboratorio. De cada objeto nos interesa saber: el código de objeto, el precio del objeto, el nivel de importancia
@@ -26,8 +15,25 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Cada objeto está en un único laboratorio. De cada laboratorio nos interesa saber, el número de laboratorio (que
 -- es único), los metros cuadrados que tiene y el número de mesas que hay en el mismo.
 -- -----------------------------------------------------
+DROP Schema IF EXISTS`BDlaboratoriObjetos`;
+
 CREATE SCHEMA IF NOT EXISTS `BDlaboratoriObjetos` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
 USE `BDlaboratoriObjetos` ;
+
+-- -----------------------------------------------------
+-- Table `BDlaboratoriObjetos`.`centros`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`centros` (
+  `idcentros` INT NOT NULL AUTO_INCREMENT,
+  `nombreCentro` VARCHAR(45) NULL,
+  `calleCentro` VARCHAR(45) NULL,
+  `numero` VARCHAR(45) NULL,
+  `codPostal` VARCHAR(45) NULL,
+  `ciudad` VARCHAR(45) NULL,
+  PRIMARY KEY (`idcentros`),
+  UNIQUE INDEX `idcentros_UNIQUE` (`idcentros` ASC) VISIBLE)
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `BDlaboratoriObjetos`.`laboratorios`
@@ -36,8 +42,15 @@ CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`laboratorios` (
   `numLaboratorio` INT NOT NULL AUTO_INCREMENT,
   `metrosCuadrados` VARCHAR(45) NULL,
   `numMesas` VARCHAR(45) NULL,
-  PRIMARY KEY (`numLaboratorio`),
-  UNIQUE INDEX `numLaboratorio_UNIQUE` (`numLaboratorio` ASC) VISIBLE)
+  `centros_idcentros` INT NOT NULL,
+  PRIMARY KEY (`numLaboratorio`, `centros_idcentros`),
+  UNIQUE INDEX `numLaboratorio_UNIQUE` (`numLaboratorio` ASC) VISIBLE,
+  INDEX `fk_laboratorios_centros1_idx` (`centros_idcentros` ASC) VISIBLE,
+  CONSTRAINT `fk_laboratorios_centros1`
+    FOREIGN KEY (`centros_idcentros`)
+    REFERENCES `BDlaboratoriObjetos`.`centros` (`idcentros`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
