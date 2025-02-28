@@ -106,8 +106,15 @@ CREATE TABLE IF NOT EXISTS `BDAviones`.`Pilotos` (
   `apellidosPiloto` VARCHAR(45) NULL,
   `direcciónPiloto` VARCHAR(45) NULL,
   `teléfonoPiloto` VARCHAR(45) NULL,
-  PRIMARY KEY (`númeroPiloto`),
-  UNIQUE INDEX `númeroPiloto_UNIQUE` (`númeroPiloto` ASC) VISIBLE)
+  `Pilotos_númeroPiloto` INT NOT NULL,
+  PRIMARY KEY (`númeroPiloto`, `Pilotos_númeroPiloto`),
+  UNIQUE INDEX `númeroPiloto_UNIQUE` (`númeroPiloto` ASC) VISIBLE,
+  INDEX `fk_Pilotos_Pilotos1_idx` (`Pilotos_númeroPiloto` ASC) VISIBLE,
+  CONSTRAINT `fk_Pilotos_Pilotos1`
+    FOREIGN KEY (`Pilotos_númeroPiloto`)
+    REFERENCES `BDAviones`.`Pilotos` (`númeroPiloto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
