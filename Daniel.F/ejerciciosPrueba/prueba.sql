@@ -187,4 +187,4 @@ INSERT INTO Informes (ContrataciónID, FechaEntrega, Resumen, ArchivoURL) VALUES
 
 
 select * from Clientes, Servicios, Contrataciones,Pagos,Empleados, Asignaciones;
- 
+ show character set like 'utf%';
