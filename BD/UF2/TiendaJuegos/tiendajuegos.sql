@@ -17,10 +17,13 @@ create table if not exists Clientes (
     nombre varchar(50)
 );
 
-
+-- Aqui empieza la tabla detalle_pedidos
 CREATE TABLE detalle_pedidos (
     id_detalle int primary key auto_increment
-    
 );
+
+-- Modificaciones oara añadir columnas
+ALTER TABLE detalle_pedidos change COLUMN id_pedidos ID int primary key auto_increment;
+ALTER TABLE detalle_pedidos ADD cantidad INT;
 
 
