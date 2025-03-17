@@ -81,3 +81,12 @@ alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) refe
 ALTER TABLE Pedidos 
 ADD CONSTRAINT fk_cliente
 FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
+
+-- Inserto datos en la tabla juegos
+
+Insert into juegos (nombre,categoria,precio,stock)
+values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78,200);
+
+Insert into clientes (nombre,email,fechaRegistro)
+values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
+
