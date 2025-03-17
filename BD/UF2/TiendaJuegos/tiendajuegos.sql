@@ -16,3 +16,11 @@ create table if not exists Clientes (
 	idCliente int, 
     nombre varchar(50)
 );
+
+
+CREATE TABLE detalle_pedidos (
+    id_detalle int primary key auto_increment
+    
+);
+
+
