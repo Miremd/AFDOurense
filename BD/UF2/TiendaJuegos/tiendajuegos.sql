@@ -44,9 +44,9 @@ add column precio double(5,2);
 alter table juegos
 add column stock int;
 
--- Ponemos Clave primaria
-Alter table juegos
-add constraint auto_increment primary key (ID);
+-- Ponemos Clave primaria y autoincrement 
+
+ALTER TABLE juegos modify ID int auto_increment primary key;
 
 -- Usamos el ALTER TABLE  en tabla Pedidos, a ver que pasa...
 ALTER TABLE Pedidos 
@@ -82,3 +82,18 @@ alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) refe
 ALTER TABLE Pedidos 
 ADD CONSTRAINT fk_cliente
 FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
+
+-- Añadir datos a la tabla Juego, a ver que pasa...:/
+
+INSERT INTO Juegos (nombre, categoria, precio, stock) values ( "Satisfyer", "lucha", 50.60, 5);
+INSERT INTO Juegos (nombre, categoria, precio, stock) values ("Columpio Infernal","lucha", 150.70,4);
+INSERT INTO Juegos( nombre, categoria, precio, stock) values ("Esposas","lucha",20.05,5);
+INSERT INTO Juegos (nombre, categoria,precio,stock) values ("Juegos del hambre","estrategia",30.80,5);
+
+-- Añadir datos clientes
+
+	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
+	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
+    INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
+    
+    
