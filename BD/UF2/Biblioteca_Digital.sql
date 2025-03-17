@@ -35,7 +35,11 @@ select * from usuario;
 select * from libros;
 describe usuario;
 describe libros;
-select año, autor from libros where año > '20000114' order by '20000114' like = ;
+select año, autor from libros where año > '20000114' order by '20000114' ;
+
+
+SHOW VARIABLES LIKE 'character_set_server';
+show warnings;
 
 
 
