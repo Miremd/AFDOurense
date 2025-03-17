@@ -6,3 +6,7 @@ create table juegos (
 	nombreJuego varchar(50)
 );
                     
+CREATE TABLE Pedidos (
+	idPedido INT
+
+);
