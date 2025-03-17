@@ -65,13 +65,13 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BDlaboratoriObjetos`.`Tipo_objeto`
+-- Table `BDlaboratoriObjetos`.`TipObjeto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`Tipo_objeto` (
-  `idTipo_objeto` INT NOT NULL AUTO_INCREMENT,
-  `Cantidad` INT(5) NULL,
-  PRIMARY KEY (`idTipo_objeto`),
-  UNIQUE INDEX `idTipo_objeto_UNIQUE` (`idTipo_objeto` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`TipObjeto` (
+  `idTipObjeto` INT NOT NULL AUTO_INCREMENT,
+  `Cantidad` VARCHAR(45) NULL,
+  PRIMARY KEY (`idTipObjeto`),
+  UNIQUE INDEX `idTipObjeto_UNIQUE` (`idTipObjeto` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -85,19 +85,19 @@ CREATE TABLE IF NOT EXISTS `BDlaboratoriObjetos`.`objetos` (
   `alto` VARCHAR(45) NULL,
   `ancho` VARCHAR(45) NULL,
   `laboratorios_numLaboratorio` INT NOT NULL,
-  `Tipo_objeto_idTipo_objeto` INT NOT NULL,
-  PRIMARY KEY (`codObjeto`, `laboratorios_numLaboratorio`, `Tipo_objeto_idTipo_objeto`),
+  `TipObjeto_idTipObjeto` INT NOT NULL,
+  PRIMARY KEY (`codObjeto`, `laboratorios_numLaboratorio`, `TipObjeto_idTipObjeto`),
   UNIQUE INDEX `codObjeto_UNIQUE` (`codObjeto` ASC) VISIBLE,
   INDEX `fk_objetos_laboratorios_idx` (`laboratorios_numLaboratorio` ASC) VISIBLE,
-  INDEX `fk_objetos_Tipo_objeto1_idx` (`Tipo_objeto_idTipo_objeto` ASC) VISIBLE,
+  INDEX `fk_objetos_TipObjeto1_idx` (`TipObjeto_idTipObjeto` ASC) VISIBLE,
   CONSTRAINT `fk_objetos_laboratorios`
     FOREIGN KEY (`laboratorios_numLaboratorio`)
     REFERENCES `BDlaboratoriObjetos`.`laboratorios` (`numLaboratorio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_objetos_Tipo_objeto1`
-    FOREIGN KEY (`Tipo_objeto_idTipo_objeto`)
-    REFERENCES `BDlaboratoriObjetos`.`Tipo_objeto` (`idTipo_objeto`)
+  CONSTRAINT `fk_objetos_TipObjeto1`
+    FOREIGN KEY (`TipObjeto_idTipObjeto`)
+    REFERENCES `BDlaboratoriObjetos`.`TipObjeto` (`idTipObjeto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
