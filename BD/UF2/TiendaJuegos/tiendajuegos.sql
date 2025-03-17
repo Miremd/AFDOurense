@@ -118,3 +118,13 @@ INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES
 ('Alex Johnson', 'ajohnson@email.com', '20000125'),
 ('Mary Brown', 'mbrown@email.com', '20000125');
     
+-- Añadir datos a tabla Juegos
+insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
+insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
+
+-- Añadir datos a tabla Clientes 
+insert into Clientes (nombre, email, fechaRegistro) 
+values 
+('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
+('Juan Perez', 'juanillo@gmail.com', '20250104'), 
+('Pepa Antunez', 'pepita@hotmail.com', '20241123');
