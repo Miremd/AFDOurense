@@ -77,6 +77,7 @@ ALTER TABLE detalle_pedidos ADD ID_juego INT;
 --  FK   detalle_pedidos
 alter table detalle_pedidos add constraint fk_pedido foreign key(ID_pedido) references pedidos(ID) on delete cascade;
 alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) references juegos(ID);
+
 -- FK  pedidos
 ALTER TABLE Pedidos 
 ADD CONSTRAINT fk_cliente
@@ -90,6 +91,15 @@ INSERT INTO Juegos( nombre, categoria, precio, stock) values ("Esposas","lucha",
 INSERT INTO Juegos (nombre, categoria,precio,stock) values ("Juegos del hambre","estrategia",30.80,5);
 Insert into juegos (nombre,categoria,precio,stock)
 values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78,200);
+INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
+('la loca pajareria de transilvania', 'lucha', '200','30'), 
+('la loca pajareria de transilvania', 'estrategia', '200','30'),
+('la loca pajareria de transilvania', 'estrategia', '300','30'),
+('la loca pajareria de transilvania', 'lucha', '400','30'),
+('la loca pajareria de transilvania', 'lucha', '200','30'), 
+('la loca pajareria de transilvania', 'estrategia', '200','30'),
+('la loca pajareria de transilvania', 'estrategia', '300','30'),
+('la loca pajareria de transilvania', 'lucha', '400','30');
 
 -- Añadir datos clientes
 
@@ -98,5 +108,13 @@ values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78
     INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
     Insert into clientes (nombre,email,fechaRegistro)
 values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
-
+INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES 
+('John Doe', 'jdoe@email.com', '20000125'),
+('Jane Smith', 'jsmith@email.com', '20000125'), 
+('Alex Johnson', 'ajohnson@email.com', '20000125'),
+('Mary Brown', 'mbrown@email.com', '20000125'),
+('John Manuel', 'jdoe@email.com', '20000125'),
+('Jane Smith', 'jsmith@email.com', '20000125'), 
+('Alex Johnson', 'ajohnson@email.com', '20000125'),
+('Mary Brown', 'mbrown@email.com', '20000125');
     
