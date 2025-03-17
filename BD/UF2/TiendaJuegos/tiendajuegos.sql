@@ -6,12 +6,30 @@ drop  database if exists  tiendajuegos;
 create database if not exists tiendajuegos;
 use tiendajuegos;
 
--- datos de tabla juegos
+-- creacion de tablas
+-- crear de tabla juegos
 create table if not exists juegos (
 	idJuego int,
 	nombreJuego varchar(50)
 );
 
+ -- Creamos tabla Pedidos            
+CREATE TABLE if not exists Pedidos (
+	idPedido INT
+);
+
+-- Crear tabla Clientes
+create table if not exists Clientes (
+	idCliente int, 
+    nombre varchar(50)
+);
+
+-- Aqui empieza la tabla detalle_pedidos
+CREATE TABLE if not exists detalle_pedidos (
+    id_detalle int primary key auto_increment
+);
+
+-- modificaciones de tablas
 -- Modificamos la tabla Juegos, Nombres de campos
 alter table juegos
 change column idJuego ID int;
@@ -30,14 +48,7 @@ add column stock int;
 Alter table juegos
 add constraint auto_increment primary key (ID);
 
- -- Creamos tabla Pedidos            
-CREATE TABLE if not exists Pedidos (
-	idPedido INT
-
-);
-
 -- Usamos el ALTER TABLE  en tabla Pedidos, a ver que pasa...
-
 ALTER TABLE Pedidos 
 CHANGE COLUMN IdPedido ID INT;
 ALTER TABLE Pedidos
@@ -46,15 +57,7 @@ ALTER TABLE Pedidos
 ADD COLUMN ID_cliente INT;
 ALTER TABLE Pedidos
 ADD COLUMN fecha_pedido DATE;
-ALTER TABLE Pedidos 
-ADD CONSTRAINT fk_cliente
-FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
 
--- Crear tabla Clientes
-create table if not exists Clientes (
-	idCliente int, 
-    nombre varchar(50)
-);
 --  Modificaciones de la tabla Clientes
 alter table Clientes 
 change column idCliente ID int;
@@ -65,19 +68,17 @@ add column email varchar(50);
 alter table Clientes
 add column fechaRegistro date;
 
--- Aqui empieza la tabla detalle_pedidos
-
-CREATE TABLE if not exists detalle_pedidos (
-    id_detalle int primary key auto_increment
-);
-
 -- Modificaciones en detalle pedidos para añadir columnas
 ALTER TABLE detalle_pedidos change COLUMN id_detalle ID int;
 ALTER TABLE detalle_pedidos ADD ID_pedido INT;
 ALTER TABLE detalle_pedidos ADD cantidad INT;
 ALTER TABLE detalle_pedidos ADD ID_juego INT;
 
+-- Modificaciones para añadir claves foraneas 
+--  FK   detalle_pedidos
 alter table detalle_pedidos add constraint fk_pedido foreign key(ID_pedido) references pedidos(ID) on delete cascade;
 alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) references juegos(ID);
-
-
+-- FK  pedidos
+ALTER TABLE Pedidos 
+ADD CONSTRAINT fk_cliente
+FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
