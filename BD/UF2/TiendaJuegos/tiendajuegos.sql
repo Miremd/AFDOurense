@@ -70,4 +70,9 @@ CREATE TABLE if not exists detalle_pedidos (
 
 -- Modificaciones en detalle pedidos para añadir columnas
 ALTER TABLE detalle_pedidos change COLUMN id_detalle ID int;
+ALTER TABLE detalle_pedidos ADD ID_pedido INT;
 ALTER TABLE detalle_pedidos ADD cantidad INT;
+ALTER TABLE detalle_pedidos ADD ID_juego INT;
+
+alter table detalle_pedidos add constraint fk_pedido foreign key(ID_pedido) references pedidos(ID) on delete cascade;
+alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) references juegos(ID);
