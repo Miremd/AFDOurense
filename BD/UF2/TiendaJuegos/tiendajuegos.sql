@@ -82,11 +82,21 @@ ALTER TABLE Pedidos
 ADD CONSTRAINT fk_cliente
 FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
 
--- Inserto datos en la tabla juegos
+-- Añadir datos a la tabla Juego, a ver que pasa...:/
 
+INSERT INTO Juegos (nombre, categoria, precio, stock) values ( "Satisfyer", "lucha", 50.60, 5);
+INSERT INTO Juegos (nombre, categoria, precio, stock) values ("Columpio Infernal","lucha", 150.70,4);
+INSERT INTO Juegos( nombre, categoria, precio, stock) values ("Esposas","lucha",20.05,5);
+INSERT INTO Juegos (nombre, categoria,precio,stock) values ("Juegos del hambre","estrategia",30.80,5);
 Insert into juegos (nombre,categoria,precio,stock)
 values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78,200);
 
-Insert into clientes (nombre,email,fechaRegistro)
+-- Añadir datos clientes
+
+	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
+	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
+    INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
+    Insert into clientes (nombre,email,fechaRegistro)
 values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
 
+    
