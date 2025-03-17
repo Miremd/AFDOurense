@@ -1,5 +1,5 @@
 -- eliminar base de datos si estoy en pruebas
---descomentar la siguiente linea siempre que no haya datos
+-- descomentar la siguiente linea siempre que no haya datos
 drop  database if exists  tiendajuegos;
 
 -- crear y poner en uso base de datos
@@ -69,5 +69,5 @@ CREATE TABLE if not exists detalle_pedidos (
 );
 
 -- Modificaciones en detalle pedidos para añadir columnas
-ALTER TABLE detalle_pedidos change COLUMN id_pedidos ID int primary key auto_increment;
+ALTER TABLE detalle_pedidos change COLUMN id_pedidos ID int;
 ALTER TABLE detalle_pedidos ADD cantidad INT;
