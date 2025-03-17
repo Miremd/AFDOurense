@@ -1,4 +1,5 @@
 create database tiendajuegos;
+
 use tiendajuegos;
 
 CREATE TABLE detalle_pedidos (
