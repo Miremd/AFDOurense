@@ -76,3 +76,5 @@ ALTER TABLE detalle_pedidos ADD ID_juego INT;
 
 alter table detalle_pedidos add constraint fk_pedido foreign key(ID_pedido) references pedidos(ID) on delete cascade;
 alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) references juegos(ID);
+
+
