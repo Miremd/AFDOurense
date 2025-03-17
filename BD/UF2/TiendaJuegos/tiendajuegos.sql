@@ -44,9 +44,8 @@ add column precio double(5,2);
 alter table juegos
 add column stock int;
 
--- Ponemos Clave primaria
-Alter table juegos
-add constraint auto_increment primary key (ID);
+-- Ponemos Clave primaria yauto increment
+alter table juegos modify ID int auto_increment primary key;
 
 -- Usamos el ALTER TABLE  en tabla Pedidos, a ver que pasa...
 ALTER TABLE Pedidos 
@@ -83,3 +82,49 @@ alter table detalle_pedidos add constraint fk_juegos foreign key (ID_juego) refe
 ALTER TABLE Pedidos 
 ADD CONSTRAINT fk_cliente
 FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
+
+use tiendajuegos;
+
+desc clientes;
+INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES 
+('John Doe', 'jdoe@email.com', '20000125'),
+('Jane Smith', 'jsmith@email.com', '20000125'), 
+('Alex Johnson', 'ajohnson@email.com', '20000125'),
+('Mary Brown', 'mbrown@email.com', '20000125'),
+('John Manuel', 'jdoe@email.com', '20000125'),
+('Jane Smith', 'jsmith@email.com', '20000125'), 
+('Alex Johnson', 'ajohnson@email.com', '20000125'),
+('Mary Brown', 'mbrown@email.com', '20000125');
+select * from clientes;
+desc juegos;
+INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
+('la loca pajareria de transilvania', 'lucha', '200','30'), 
+('la loca pajareria de transilvania', 'estrategia', '200','30'),
+('la loca pajareria de transilvania', 'estrategia', '300','30'),
+('la loca pajareria de transilvania', 'lucha', '400','30'),
+('la loca pajareria de transilvania', 'lucha', '200','30'), 
+('la loca pajareria de transilvania', 'estrategia', '200','30'),
+('la loca pajareria de transilvania', 'estrategia', '300','30'),
+('la loca pajareria de transilvania', 'lucha', '400','30');
+
+select * from juegos;
+desc juegos;
+
+desc pedidos;
+
+INSERT INTO pedidos ( precio, stock) VALUES 
+('John Doe', '20000125'),
+('Jane Smith', '20000125'), 
+('Alex Johnson', '20000125'),
+('Mary Brown', '20000125');
+desc pedidos;
+INSERT INTO detalle_pedidos (ID_cliente, fecha_pedido) VALUES 
+('John Doe', 'jdoe@email.com', '20000125'),
+('Jane Smith', 'jsmith@email.com', '20000125'), 
+('Alex Johnson', 'ajohnson@email.com', '20000125'),
+('Mary Brown', 'mbrown@email.com', '20000125');
+ 
+
+
+
+
