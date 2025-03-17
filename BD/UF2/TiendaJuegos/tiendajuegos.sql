@@ -44,9 +44,8 @@ add column precio double(5,2);
 alter table juegos
 add column stock int;
 
--- Ponemos Clave primaria
-Alter table juegos
-add constraint auto_increment primary key (ID);
+-- Ponemos Clave primaria y autoincrement
+Alter table  juegos modify ID INT auto_increment primary key;
 
 -- Usamos el ALTER TABLE  en tabla Pedidos, a ver que pasa...
 ALTER TABLE Pedidos 
