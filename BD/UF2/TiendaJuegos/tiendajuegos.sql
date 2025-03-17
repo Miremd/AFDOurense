@@ -46,6 +46,9 @@ ALTER TABLE Pedidos
 ADD COLUMN ID_cliente INT;
 ALTER TABLE Pedidos
 ADD COLUMN fecha_pedido DATE;
+ALTER TABLE Pedidos 
+ADD CONSTRAINT fk_cliente
+FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
 
 -- Crear tabla Clientes
 create table if not exists Clientes (
