@@ -10,3 +10,9 @@ CREATE TABLE Pedidos (
 	idPedido INT
 
 );
+
+-- Crear tabla Clientes
+create table if not exists Clientes (
+	idCliente int, 
+    nombre varchar(50)
+);
