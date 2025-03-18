@@ -151,4 +151,7 @@ INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (4,'20240708');
 INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (9,'20241111');
 INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (12,'20240508');
 
--- insert de detalles pedidos
+INSERT INTO detalle_pedido (ID_pedido, ID_juego, cantidad) VALUES (3,16,5);
+INSERT INTO detalle_pedido (ID_pedido, ID_juego, cantidad) VALUES (2,4,8);
+INSERT INTO detalle_pedido (ID_pedido, ID_juego, cantidad) VALUES (4,6,9);
+INSERT INTO detalle_pedido (ID_pedio, ID_juego, cantidad) VALUES (1,2,10);
