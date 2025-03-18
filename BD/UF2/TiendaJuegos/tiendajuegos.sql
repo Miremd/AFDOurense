@@ -103,7 +103,7 @@ INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
 insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
 insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
 
--- Añadir datos clientes
+	-- Añadir datos clientes
 
 INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
 INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
@@ -136,7 +136,7 @@ values
 (16, '20221123');
 insert into Pedidos (id_cliente,fecha_pedido)
 values 
-(1,current_date),
+(1,'2024-03-31'),
 (2,'2024-03-22'),
 (1,'2025-01-12');
 insert into pedidos (ID_cliente, fecha_pedido) 
@@ -147,3 +147,8 @@ values
 (15, '20250302'), 
 (1, '20231129'), 
 (13, '20240823');
+INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (4,'20240708');
+INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (9,'20241111');
+INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (12,'20240508');
+
+-- insert de detalles pedidos
