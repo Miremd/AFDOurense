@@ -128,3 +128,7 @@ values
 ('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
 ('Juan Perez', 'juanillo@gmail.com', '20250104'), 
 ('Pepa Antunez', 'pepita@hotmail.com', '20241123');
+
+-- Añadimos datos a la tabla pedidos 
+insert into pedidos (ID_cliente, fecha_pedido) 
+values (3, '20241002'), (15, '20250215'), (8, '20241212'), (15, '20250302'), (1, '20231129'), (13, '20240823');
