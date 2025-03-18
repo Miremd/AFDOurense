@@ -101,7 +101,15 @@ INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
 ('la loca pajareria de transilvania', 'estrategia', '300','30'),
 ('la loca pajareria de transilvania', 'lucha', '400','30');
 
+<<<<<<< Updated upstream
 -- Añadir datos clientes
+=======
+
+
+
+select * from juegos;
+desc juegos;
+>>>>>>> Stashed changes
 
 	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
 	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
@@ -117,6 +125,7 @@ INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES
 ('Jane Smith', 'jsmith@email.com', '20000125'), 
 ('Alex Johnson', 'ajohnson@email.com', '20000125'),
 ('Mary Brown', 'mbrown@email.com', '20000125');
+<<<<<<< Updated upstream
     
 -- Añadir datos a tabla Juegos
 insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
@@ -142,5 +151,12 @@ select pedidos.ID_cliente, pedidos.fecha_pedido from pedidos;
 /*UPDATE juegos SET nombre = 'la loca pajareria de transilvania'
 WHERE categoria = 'lucha';*/
 
+=======
+ 
+ 
+ 
+ 
+ 
+>>>>>>> Stashed changes
 
 
