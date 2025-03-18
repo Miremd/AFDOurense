@@ -68,7 +68,7 @@ alter table Clientes
 add column fechaRegistro date;
 
 -- Modificaciones en detalle pedidos para añadir columnas
-ALTER TABLE detalle_pedidos change COLUMN id_detalle ID int;
+ALTER TABLE detalle_pedidos change COLUMN id_detalle ID int auto_increment;
 ALTER TABLE detalle_pedidos ADD ID_pedido INT;
 ALTER TABLE detalle_pedidos ADD cantidad INT;
 ALTER TABLE detalle_pedidos ADD ID_juego INT;
@@ -152,3 +152,11 @@ INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (9,'20241111');
 INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (12,'20240508');
 
 -- insert de detalles pedidos
+insert into detalle_pedidos (ID_pedido, cantidad, ID_juego) 
+values 
+(8, 2, 4), 
+(12, 1, 17), 
+(14, 3, 9), 
+(2, 2, 6), 
+(6, 1, 15), 
+(11, 5, 11);
