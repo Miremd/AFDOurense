@@ -128,3 +128,19 @@ values
 ('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
 ('Juan Perez', 'juanillo@gmail.com', '20250104'), 
 ('Pepa Antunez', 'pepita@hotmail.com', '20241123');
+
+select * from clientes;
+/*-- Añadir datos a tabla pedidos
+desc pedidos;*/
+insert into pedidos (ID_cliente, fecha_pedido) 
+values 
+(14, '20240417'), 
+(15, '20230104'), 
+(16, '20221123');
+select pedidos.ID_cliente, pedidos.fecha_pedido from pedidos;
+
+/*UPDATE juegos SET nombre = 'la loca pajareria de transilvania'
+WHERE categoria = 'lucha';*/
+
+
+
