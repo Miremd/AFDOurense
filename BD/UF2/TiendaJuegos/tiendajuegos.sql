@@ -165,3 +165,10 @@ values
 (2, 2, 6), 
 (6, 1, 15), 
 (11, 5, 11);
+
+INSERT INTO detalle_pedidos (ID_pedido,cantidad,ID_juego)
+values
+(3,2,5),
+(3,5,1),
+(5,10,6);
+
