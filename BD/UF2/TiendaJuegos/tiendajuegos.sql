@@ -85,46 +85,50 @@ FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID);
 
 -- Añadir datos a la tabla Juego, a ver que pasa...:/
 
-INSERT INTO Juegos (nombre, categoria, precio, stock) values ( "Satisfyer", "lucha", 50.60, 5);
-INSERT INTO Juegos (nombre, categoria, precio, stock) values ("Columpio Infernal","lucha", 150.70,4);
-INSERT INTO Juegos( nombre, categoria, precio, stock) values ("Esposas","lucha",20.05,5);
-INSERT INTO Juegos (nombre, categoria,precio,stock) values ("Juegos del hambre","estrategia",30.80,5);
-Insert into juegos (nombre,categoria,precio,stock)
-values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78,200);
-INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
-('la loca pajareria de transilvania', 'lucha', '200','30'), 
-('la loca pajareria de transilvania', 'estrategia', '200','30'),
-('la loca pajareria de transilvania', 'estrategia', '300','30'),
-('la loca pajareria de transilvania', 'lucha', '400','30'),
-('la loca pajareria de transilvania', 'lucha', '200','30'), 
-('la loca pajareria de transilvania', 'estrategia', '200','30'),
-('la loca pajareria de transilvania', 'estrategia', '300','30'),
-('la loca pajareria de transilvania', 'lucha', '400','30');
+	INSERT INTO Juegos (nombre, categoria, precio, stock) values ( "Satisfyer", "lucha", 50.60, 5);
+	INSERT INTO Juegos (nombre, categoria, precio, stock) values ("Columpio Infernal","lucha", 150.70,4);
+	INSERT INTO Juegos( nombre, categoria, precio, stock) values ("Esposas","lucha",20.05,5);
+	INSERT INTO Juegos (nombre, categoria,precio,stock) values ("Juegos del hambre","estrategia",30.80,5);
+	Insert into juegos (nombre,categoria,precio,stock)
+	values ('The binding of Isaac','roguelike',20,100),('Baba is you','puzzle',30.78,200);
+	INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
+	('la loca pajareria de transilvania', 'lucha', '200','30'), 
+	('la loca pajareria de transilvania', 'estrategia', '200','30'),
+	('la loca pajareria de transilvania', 'estrategia', '300','30'),
+	('la loca pajareria de transilvania', 'lucha', '400','30'),
+	('la loca pajareria de transilvania', 'lucha', '200','30'), 
+	('la loca pajareria de transilvania', 'estrategia', '200','30'),
+	('la loca pajareria de transilvania', 'estrategia', '300','30'),
+	('la loca pajareria de transilvania', 'lucha', '400','30');
 
--- Añadir datos clientes
+	-- Añadir datos clientes
 
-	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
-	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
-    INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
-    Insert into clientes (nombre,email,fechaRegistro)
-values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
-INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES 
-('John Doe', 'jdoe@email.com', '20000125'),
-('Jane Smith', 'jsmith@email.com', '20000125'), 
-('Alex Johnson', 'ajohnson@email.com', '20000125'),
-('Mary Brown', 'mbrown@email.com', '20000125'),
-('John Manuel', 'jdoe@email.com', '20000125'),
-('Jane Smith', 'jsmith@email.com', '20000125'), 
-('Alex Johnson', 'ajohnson@email.com', '20000125'),
-('Mary Brown', 'mbrown@email.com', '20000125');
-    
--- Añadir datos a tabla Juegos
-insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
-insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
+		INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
+		INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
+		INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
+		Insert into clientes (nombre,email,fechaRegistro) values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
+		INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES 
+		('John Doe', 'jdoe@email.com', '20000125'),
+		('Jane Smith', 'jsmith@email.com', '20000125'), 
+		('Alex Johnson', 'ajohnson@email.com', '20000125'),
+		('Mary Brown', 'mbrown@email.com', '20000125'),
+		('John Manuel', 'jdoe@email.com', '20000125'),
+		('Jane Smith', 'jsmith@email.com', '20000125'), 
+		('Alex Johnson', 'ajohnson@email.com', '20000125'),
+		('Mary Brown', 'mbrown@email.com', '20000125');
+			
+	-- Añadir datos a tabla Juegos
+	insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
+	insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
 
--- Añadir datos a tabla Clientes 
-insert into Clientes (nombre, email, fechaRegistro) 
-values 
-('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
-('Juan Perez', 'juanillo@gmail.com', '20250104'), 
-('Pepa Antunez', 'pepita@hotmail.com', '20241123');
+	-- Añadir datos a tabla Clientes 
+	insert into Clientes (nombre, email, fechaRegistro) 
+	values 
+	('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
+	('Juan Perez', 'juanillo@gmail.com', '20250104'), 
+	('Pepa Antunez', 'pepita@hotmail.com', '20241123');
+
+    -- Añadir Pedidos a la tabla Pedidos
+   INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (4,'20240708');
+   INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (9,'20241111');
+   INSERT INTO pedidos (ID_cliente, fecha_pedido) VALUES (12,'20240508');
