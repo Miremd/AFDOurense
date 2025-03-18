@@ -128,3 +128,11 @@ values
 ('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
 ('Juan Perez', 'juanillo@gmail.com', '20250104'), 
 ('Pepa Antunez', 'pepita@hotmail.com', '20241123');
+
+-- Añadir datos a tabla Pedidos
+insert into Pedidos (id_cliente,fecha_pedido)
+values (1,current_date),(2,'2024-03-22'),(1,'2025-01-12');
+
+
+Select * from Clientes;
+Select * from Pedidos;
