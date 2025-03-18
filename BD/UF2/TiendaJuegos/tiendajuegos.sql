@@ -100,22 +100,18 @@ INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
 ('la loca pajareria de transilvania', 'estrategia', '200','30'),
 ('la loca pajareria de transilvania', 'estrategia', '300','30'),
 ('la loca pajareria de transilvania', 'lucha', '400','30');
+insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
+insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
 
-<<<<<<< Updated upstream
 -- Añadir datos clientes
-=======
 
-
-
-select * from juegos;
-desc juegos;
->>>>>>> Stashed changes
-
-	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
-	INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
-    INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
-    Insert into clientes (nombre,email,fechaRegistro)
-values ('Pepe','lala@hotmail.com','2024-12-11'),('Juana','juju@hotmail.com','2025-01-02');
+INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
+INSERT INTO clientes (nombre, email,fechaRegistro) values ('Dani','daninolalies@gmail.com','20240707');
+INSERT INTO clientes (nombre,email,fechaRegistro) values ('ManuelBaltar','atodamecha@gmail.com', '20250102' );
+Insert into clientes (nombre,email,fechaRegistro)
+values 
+('Pepe','lala@hotmail.com','2024-12-11'),
+('Juana','juju@hotmail.com','2025-01-02');
 INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES 
 ('John Doe', 'jdoe@email.com', '20000125'),
 ('Jane Smith', 'jsmith@email.com', '20000125'), 
@@ -125,38 +121,21 @@ INSERT INTO clientes (Nombre, email, fechaRegistro) VALUES
 ('Jane Smith', 'jsmith@email.com', '20000125'), 
 ('Alex Johnson', 'ajohnson@email.com', '20000125'),
 ('Mary Brown', 'mbrown@email.com', '20000125');
-<<<<<<< Updated upstream
-    
--- Añadir datos a tabla Juegos
-insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
-insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
-
--- Añadir datos a tabla Clientes 
 insert into Clientes (nombre, email, fechaRegistro) 
 values 
 ('Manuela Lopez', 'manoli@gmail.com', '20230417'), 
 ('Juan Perez', 'juanillo@gmail.com', '20250104'), 
 ('Pepa Antunez', 'pepita@hotmail.com', '20241123');
 
-select * from clientes;
-/*-- Añadir datos a tabla pedidos
-desc pedidos;*/
+-- Añadir datos a tabla pedidos
+
 insert into pedidos (ID_cliente, fecha_pedido) 
 values 
 (14, '20240417'), 
 (15, '20230104'), 
 (16, '20221123');
-select pedidos.ID_cliente, pedidos.fecha_pedido from pedidos;
-
-/*UPDATE juegos SET nombre = 'la loca pajareria de transilvania'
-WHERE categoria = 'lucha';*/
-
-=======
- 
- 
- 
- 
- 
->>>>>>> Stashed changes
-
-
+insert into Pedidos (id_cliente,fecha_pedido)
+values 
+(1,current_date),
+(2,'2024-03-22'),
+(1,'2025-01-12');
