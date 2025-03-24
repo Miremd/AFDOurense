@@ -1,6 +1,6 @@
 -- eliminar base de datos si estoy en pruebas
 -- descomentar la siguiente linea siempre que no haya datos
---  drop  database if exists  tiendajuegos;
+ drop  database if exists  tiendajuegos;
 
 -- crear y poner en uso base de datos
 create database if not exists tiendajuegos;
@@ -190,3 +190,4 @@ VALUES
 (3,28,6),
 (1,28,7);
 
+ 
