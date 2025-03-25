@@ -68,13 +68,13 @@ use pinacoteca;
 -- Mostrar los pintores que fueron protegidos por mecenas,
 --  junto con la fecha de inicio de la protección y 
 -- el nombre del mecenas.
-SELECT 
-    m.NombreM AS Mecenasmecenas, 
-    p.Npintor AS Pintor, 
-    pr.FInicio AS FechaInicio
-FROM protege pr
-JOIN mecenas m ON pr.NMecenas = m.NombreM
-JOIN pintor p ON pr.NPintor = p.Npintor;
+	SELECT 
+		m.NombreM AS Mecenasmecenas, 
+		p.Npintor AS Pintor, 
+		pr.FInicio AS FechaInicio
+	FROM protege pr
+	JOIN mecenas m ON pr.NMecenas = m.NombreM
+	JOIN pintor p ON pr.NPintor = p.Npintor;
 -- Enunciado 4:
 -- Listar los cuadros más grandes (en términos de superficie) de la pinacoteca "Museo del Prado", 
 -- mostrando el título,
@@ -98,6 +98,11 @@ JOIN pintor p ON pr.NPintor = p.Npintor;
 		JOIN cuadro c ON p.Npintor = c.NPintor
 		GROUP BY p.Npintor
 		HAVING COUNT(DISTINCT c.NPinacoteca) > 2;
+-- como hace la profe este ejercicio
+	SELECT Npintor, COUNT(DISTINCT npinacoteca) AS 'numero de pinacotecas'
+	FROM cuadro
+	GROUP BY Npintor
+	HAVING count(DISTINCT NPinacoteca) > 2;
 
 -- Enunciado 6
 -- Obtener la lista de escuelas que han formado pintores,
@@ -133,7 +138,6 @@ JOIN pintor p ON pr.NPintor = p.Npintor;
 	GROUP BY c.NPinacoteca;
 -- una manera muchisimo mas facil
 	SELECT SUM(Ancho)*SUM(Alto), Npinacoteca FROM cuadro GROUP BY NPinacoteca;
-
 -- Muestra todos los pintores
 -- su pais de origen,
 -- escuela a la que pertenecieron
@@ -181,5 +185,22 @@ WHERE cuadro.NPintor = pintor.Npintor AND  pintor.NombreE = escuela. NEscuela AN
 -- Visualiza nombre, direccion, ciudad 
 -- de aquellas pinacotecas que exponen obras de la misma tecnica que las creadas por los pintores
 -- de la escuela 'Sevillana'
-
 SELECT * FROM cuadro WHERE Npintor IN ( SELECT Npintor FROM pintor WHERE NombreE LIKE '%sevillana%');
+
+-- media de edad de los pintores nacidos en Sevilla
+
+SELECT AVG(YEAR(Ffall)-YEAR(Fnac)) FROM pintor WHERE Ciudadpintor LIKE '%sevi%';
+
+-- muestra la superficie de la sala que se muestra la "maja desnuda"
+SELECT metros,cuadro.numsala,cuadro.NPinacoteca, Ncuadro
+FROM salas,cuadro
+WHERE cuadro.NPinacoteca = salas.NPinacoteca
+AND Ncuadro like '%desnud%' ;
+
+-- cuadros con alto y ancho = NULL 
+-- si pongo "IS NULL", NO HACE FALTA PONER "="
+SELECT Ncuadro
+FROM cuadro
+WHERE alto IS NULL 
+AND ancho IS NULL ;
+
