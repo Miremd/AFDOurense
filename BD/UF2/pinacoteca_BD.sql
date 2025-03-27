@@ -1,4 +1,4 @@
-salascuadroTecnicaescuelamecenaspinacotecadrop database if exists pinacoteca;
+database if exists pinacoteca;
 CREATE DATABASE  IF NOT EXISTS `pinacoteca` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `pinacoteca`;
 -- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
