@@ -31,10 +31,9 @@ use tiendajuegos;
 	GROUP BY ID_cliente
 	HAVING COUNT(*) > 2;
 -- otra forma de hacerlo
-SELECT c.ID, c.nombre, COUNT(p.ID) AS num_pedidos
-FROM Clientes c
-JOIN Pedidos p ON c.ID = p.ID
-GROUP BY ID_cliente
-HAVING COUNT(p.ID) > 2;
+	SELECT c.ID, c.nombre, COUNT(p.ID) AS num_pedidos
+	FROM Clientes c
+	JOIN Pedidos p ON c.ID = p.ID
+	GROUP BY ID_cliente
+	HAVING COUNT(p.ID) > 2;
 
--- seleccionar los juegos que tienen un stock menor al stock 

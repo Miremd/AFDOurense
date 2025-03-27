@@ -204,3 +204,71 @@ FROM cuadro
 WHERE alto IS NULL 
 AND ancho IS NULL ;
 
+use pinacoteca;
+--  Seleccionar el nombre de todas las obras que tenemos en el Museo del Prado.
+	SELECT Ncuadro 
+	FROM cuadro
+	WHERE NPinacoteca = 'Museo del Prado';
+--  Visualizar todas las obras pintadas en el siglo XX junto con el autor que las pintó.
+	SELECT c.Ncuadro, c.Fcuadro, p.Npintor
+	FROM cuadro c
+	JOIN pintor p ON c.NPintor = p.Npintor
+	WHERE YEAR(c.Fcuadro) BETWEEN 1901 AND 2000;
+ -- Visualizar todas las obras pintadas en el siglo XX junto con el autor que las pintó y la fecha en que
+--  fueron pintadas, ordenadas de más reciente a más antigua
+		SELECT c.Ncuadro, p.Npintor, c.Fcuadro
+		FROM cuadro c
+		JOIN pintor p ON c.NPintor = p.Npintor
+		WHERE YEAR(c.Fcuadro) BETWEEN 1901 AND 2000
+		ORDER BY c.Fcuadro DESC;
+    -- Visualizar todos los datos de los pintores extranjeros nacidos en el siglo XX
+		SELECT *
+		FROM pintor
+		WHERE YEAR(Fnac) BETWEEN 1901 AND 2000
+		AND PaisPintor not like '%España%';
+-- Visualizar el nombre de aquellos pintores españoles que han tenido pintor maestro, junto con el
+ -- nombre de dicho maestro
+	SELECT Npintor
+	FROM pintor 
+    WHERE NpintorMaestro IS NOT NULL
+    AND PaisPintor LIKE '%España%';
+--  Mostrar las escuelas de pintura, y el país al que pertenecen, en orden cronológico
+	SELECT NEscuela, Pais
+	FROM escuela
+	ORDER BY Fecha ASC;
+--  Visualizar el cuadro más reciente que hay en nuestras pinacotecas, junto con su autor, fecha y la
+-- pinacoteca donde se encuentra. Idem con el más antiguo
+	SELECT Ncuadro, Fcuadro, NPintor, NPinacoteca
+	FROM cuadro
+	ORDER BY Fcuadro DESC
+	LIMIT 1;
+-- el mas antiguo
+	SELECT Ncuadro, Fcuadro, NPintor, NPinacoteca
+	FROM cuadro
+	ORDER BY Fcuadro ASC
+	LIMIT 1;
+-- Visualizar el nombre del cuadro y del autor de todas las obras del Museo Reina Sofía, que no sean de
+ -- Picasso
+	SELECT Ncuadro,NPintor 
+	FROM cuadro 
+	WHERE NPinacoteca like '%Museo Reina Sofía%' 
+	AND NPintor NOT LIKE '%Picasso%';
+--  Visualizar todas las obras del siglo XX que no sean óleos.
+	SELECT Ncuadro, Fcuadro
+	FROM cuadro
+	WHERE Fcuadro BETWEEN '1900-01-01' AND '1999-12-31'
+	AND tecnica NOT LIKE  '%Óleo%';
+-- Mostrar pintores ordenados descendentemente por edad
+	SELECT Npintor, Ciudadpintor, PaisPintor, Fnac
+	FROM pintor
+	ORDER BY Fnac ASC;
+    
+   
+    SElect YEAR(Ffall)-year(Fnac) AS edad, NPintor FROM pintor
+    WHERE Fnac IS NOT NULL
+    AND Ffall IS NOT NULL
+    AND Ffall>fnac
+    ORDER BY Edad DESC;
+
+
+
