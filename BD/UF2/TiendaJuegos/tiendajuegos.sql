@@ -1,6 +1,6 @@
 -- eliminar base de datos si estoy en pruebas
 -- descomentar la siguiente linea siempre que no haya datos
-drop  database if exists  tiendajuegos;
+--  drop  database if exists  tiendajuegos;
 
 -- crear y poner en uso base de datos
 create database if not exists tiendajuegos;
@@ -102,7 +102,7 @@ INSERT INTO juegos (nombre, categoria, precio, stock) VALUES
 ('la loca pajareria de transilvania', 'lucha', '400','30');
 insert into juegos (nombre, categoria, precio, stock) values ('Dixit', 'estrategia', 25.95, 3),('Catan', 'estrategia', 44.95, 11);
 insert into juegos (nombre, categoria, precio, stock) values ("Virus", "estrategia", 19.95, 6);
-
+insert into juegos (nombre, categoria, precio, stock) values ("Satisfier_2", "estrategia", 19.95, 6);
 	-- Añadir datos clientes
 
 INSERT INTO clientes (nombre, email,fechaRegistro) values ('Macarena', 'daleatucuerpoalegria@gmail.com','20240808');
