@@ -270,5 +270,30 @@ use pinacoteca;
     AND Ffall>fnac
     ORDER BY Edad DESC;
 
+use pinacoteca;
+-- Crear una tabla llamada PinacotecasMadrid con los campos npinacoteca, dirección y
+-- teléfono de aquellas pinacotecas de Madrid
 
+	ALTER TABLE `pinacoteca`
+	ADD COLUMN `Telefono` varchar(15) DEFAULT NULL;
+	CREATE TABLE PinacotecasMadrid AS
+	SELECT NPinacoteca, Direccion, Telefono
+	FROM pinacoteca
+	WHERE Ciudad = 'Madrid';
+	UPDATE `pinacoteca`
+	SET `Telefono` = '685676956'
+	WHERE `NPinacoteca` = 'Museo del Prado';
+    
+--  Crear una tabla llamada PintoresEspañoles con los campos npintor, fnac, ffall, de todos los
+--  pintores nacidos en España.
+
+CREATE TABLE PintoresEspañoles (
+    npintor INT PRIMARY KEY,('Juanito')
+    fnac DATE,(19900202)
+    ffall DATE(20250103)
+
+INSERT INTO PintoresEspañoles (npintor, fnac, ffall)
+SELECT npintor, fnac, ffall
+FROM pintores
+WHERE pais_nacimiento = 'España';
 
